@@ -13,19 +13,47 @@
     <version>1.0.0-SNAPSHOT</version>
     <name>r-demo</name>
     <description>r-demo</description>
+
     <properties>
+        <!--    集中定义版本号    -->
         <java.version>1.8</java.version>
+        <log4j2.version>2.17.2</log4j2.version>
+        <r.version>1.8.1</r.version>
     </properties>
+
     <dependencies>
+        <!--    SpringBoot    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!--    Junit    -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 日志处理 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <!--    REngine    -->
+        <dependency>
+            <groupId>org.rosuda.REngine</groupId>
+            <artifactId>Rserve</artifactId>
+            <version>${r.version}</version>
         </dependency>
     </dependencies>
 
