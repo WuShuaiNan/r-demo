@@ -37,9 +37,9 @@ class RDemoApplicationTests {
     @Test
     void test4RConnectionService() throws RserveException, REXPMismatchException {
         try {
-            assertFalse(service.getStatus());// 验证R语言连接服务状态是否显示正确
-            service.start(); // 开启R语言连接服务
-            assertTrue(service.getStatus()); // 验证R语言连接服务状态是否显示正确
+            assertFalse(service.getStatus());  // 验证R语言连接服务状态是否显示正确
+            service.start();  // 开启R语言连接服务
+            assertTrue(service.getStatus());  // 验证R语言连接服务状态是否显示正确
             RConnection rConnection = service.getRConnection();  // 获取R语言连接对象
             String result = rConnection.eval(rScript).asString();  // 执行R语言脚本，并将执行结果返回为Java字符串
             assertEquals(result, executeResult);  // 验证执行结果

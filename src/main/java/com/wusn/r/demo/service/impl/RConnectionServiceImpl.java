@@ -28,6 +28,15 @@ public class RConnectionServiceImpl implements RConnectionService {
     @Value("${r.demo.rserve.port}")
     private int rServePort;
 
+    @Value("${r.demo.rserve.anonymous.enable}")
+    private boolean rServeAnonymousEnable;
+
+    @Value("${r.demo.rserve.username}")
+    private String rServeUsername;
+
+    @Value("${r.demo.rserve.password}")
+    private String rServePassword;
+
     @Override
     public void start() {
         lock.lock();
@@ -45,7 +54,12 @@ public class RConnectionServiceImpl implements RConnectionService {
     
     public void startRConnection() throws RserveException {
         LOGGER.info("启动R语言连接服务...");
-        rConnection = new RConnection(rServeHost, rServePort);
+        if (rServeAnonymousEnable) {
+            rConnection = new RConnection(rServeHost, rServePort);
+            rConnection.login(rServeUsername, rServePassword);
+        } else {
+            rConnection = new RConnection(rServeHost, rServePort);
+        }
     }
 
     @Override
