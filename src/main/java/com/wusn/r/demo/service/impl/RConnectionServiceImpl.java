@@ -56,9 +56,9 @@ public class RConnectionServiceImpl implements RConnectionService {
         LOGGER.info("启动R语言连接服务...");
         if (rServeAnonymousEnable) {
             rConnection = new RConnection(rServeHost, rServePort);
-            rConnection.login(rServeUsername, rServePassword);
         } else {
             rConnection = new RConnection(rServeHost, rServePort);
+            rConnection.login(rServeUsername, rServePassword);
         }
     }
 
